@@ -8,7 +8,7 @@ Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprl
 |---|------|--------|
 | 0 | Copia de seguridad y rollback | ✅ |
 | 1 | Tema Omarchy `macos` (colores y fondos) | ✅ |
-| 2 | Ventanas: esquinas, sombras, desenfoque, animaciones | pendiente |
+| 2 | Ventanas: esquinas, sombras, desenfoque, animaciones | ✅ |
 | 3 | Barra superior estilo macOS | pendiente |
 | 4 | Fuentes, iconos, cursor y GTK | pendiente |
 | 5 | Dock (`nwg-dock-hyprland`) | pendiente |
@@ -32,6 +32,13 @@ omarchy theme set macos
 ```
 
 Colores del modo oscuro de macOS (`systemBlue` como acento) y dos fondos abstractos originales (`1-noche`, `2-grafito`). Cambia de fondo con `omarchy theme bg next`.
+
+## Capa 2: ventanas
+
+Va dentro del tema, en `themes/macos/hyprland.lua`, así que se activa y se desactiva al cambiar de tema. No toca `~/.config/hypr`.
+Esquinas de 12 px casi en forma de squircle, borde fino, sombra amplia que cae un poco, desenfoque para lo translúcido, ventanas que aparecen creciendo desde el 92 % y escritorios que se deslizan de lado, como los Spaces de macOS.
+
+Lo que pongas en `~/.config/hypr/looknfeel.lua` o actives con un toggle de Omarchy se carga después y manda sobre esto.
 
 ## Deshacer
 
