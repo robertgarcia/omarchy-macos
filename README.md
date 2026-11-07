@@ -2,6 +2,12 @@
 
 Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprland, aplicado por capas y siempre reversible.
 
+![Dos ventanas con botones de semáforo, la barra superior y el dock](docs/capturas/ventanas.webp)
+
+| Escritorio | Botones de semáforo | Dock |
+|---|---|---|
+| ![Fondo grafito con la barra translúcida y el dock](docs/capturas/escritorio.webp) | ![Cerrar, minimizar y ampliar con sus símbolos al pasar el ratón](docs/capturas/semaforo.webp) | ![Dock translúcido con el Launchpad y las apps fijadas](docs/capturas/dock.webp) |
+
 ## Capas
 
 | # | Capa | Estado |
