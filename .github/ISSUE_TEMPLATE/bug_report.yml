@@ -1,0 +1,65 @@
+name: Bug report
+description: Something in omarchy-macos does not work or looks wrong.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Remove anything personal (usernames, hostnames, paths, window titles) from logs and screenshots before posting.
+        Report bugs in Omarchy itself to https://github.com/omacom/omarchy.
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Layer
+      options:
+        - "0: backup and rollback"
+        - "1: theme (colors, wallpapers)"
+        - "2: windows (corners, shadows, blur, animations)"
+        - "3: top bar"
+        - "4: fonts, icons, cursor, GTK"
+        - "5: dock"
+        - "6: traffic lights"
+        - Not sure
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what you saw instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. omarchy theme set macos
+        2. ...
+    validations:
+      required: true
+  - type: input
+    id: omarchy
+    attributes:
+      label: Omarchy version
+      description: Output of `omarchy version`
+    validations:
+      required: true
+  - type: input
+    id: hyprland
+    attributes:
+      label: Hyprland version
+      description: First line of `hyprctl version`
+    validations:
+      required: true
+  - type: textarea
+    id: configerrors
+    attributes:
+      label: hyprctl configerrors
+      description: Output of `hyprctl configerrors` (empty is fine).
+      render: text
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Optional. Take them on a workspace with nothing personal on it.

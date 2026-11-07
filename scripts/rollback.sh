@@ -15,8 +15,8 @@ src="${src%/}"
 
 echo "Restaurar desde: $src"
 echo "  tema: $(<"$src/theme.txt")  fuente: $(<"$src/font.txt")"
-read -rp "¿Continuar? [s/N] " ok
-[[ $ok == [sS] ]] || exit 1
+read -rp "¿Continuar? / Continue? [s/y/N] " ok
+[[ $ok == [sSyY] ]] || exit 1
 
 # 1. Files. Current state is copied aside first, so nothing is lost.
 #    rsync updates in place, so Hyprland never sees its config directory missing.

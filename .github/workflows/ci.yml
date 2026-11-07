@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y shellcheck lua5.4 rsync
+
+      - name: shellcheck
+        run: shellcheck -S warning scripts/*.sh hooks/*.sh dock/launch.sh tests/*.sh
+
+      - name: Lua syntax
+        run: luac5.4 -p themes/macos/hyprland.lua
+
+      - name: Python syntax
+        run: python3 -m py_compile scripts/bar-layout.py
+
+      # Backup -> changes -> rollback against a fake $HOME with stubbed system commands.
+      - name: Round-trip test
+        run: tests/roundtrip.sh

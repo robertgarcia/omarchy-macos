@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a detail that would make the look closer to macOS, or a new option.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you would like
+      description: The macOS behavior or look you have in mind. A reference screenshot helps.
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How it could work
+      description: Optional. Which layer it belongs to, and how it would be undone by the rollback.
+  - type: checkboxes
+    id: pr
+    attributes:
+      label: Contribution
+      options:
+        - label: I would like to send a pull request for this.

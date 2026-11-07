@@ -1,3 +1,4 @@
+# shellcheck shell=bash disable=SC2034 # sourced by backup.sh and rollback.sh, which use these
 # Paths (relative to $HOME) that omarchy-macos may change.
 # backup.sh saves them and rollback.sh puts them back exactly as they were.
 MANAGED_PATHS=(
