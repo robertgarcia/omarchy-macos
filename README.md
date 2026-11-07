@@ -11,7 +11,7 @@ Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprl
 | 2 | Ventanas: esquinas, sombras, desenfoque, animaciones | ✅ |
 | 3 | Barra superior estilo macOS | ✅ |
 | 4 | Fuentes, iconos, cursor y GTK | ✅ |
-| 5 | Dock (`nwg-dock-hyprland`) | pendiente |
+| 5 | Dock (`nwg-dock-hyprland`) | ✅ |
 | 6 | Botones de semáforo en las ventanas (`hyprbars`) | pendiente |
 
 ## Antes de empezar
@@ -63,6 +63,21 @@ omarchy theme set macos
 - El hook `hooks/theme-set-macos.sh` se ejecuta cada vez que cambias de tema. Con `macos` pone el tema GTK `WhiteSur-Dark`, el cursor `macOS` y la fuente de interfaz `Inter 11`. Con cualquier otro tema quita solo lo que puso él.
 - Las apps libadwaita (GTK4, como Files) ignoran el tema GTK. Por eso el hook extrae el CSS de WhiteSur en `~/.config/gtk-4.0/whitesur/` y crea un `gtk.css` marcado que lo importa. Nunca sobrescribe un `gtk.css` tuyo. Las apps abiertas solo lo ven al reiniciarlas.
 - La fuente de la barra y de las terminales sigue siendo la monoespaciada de Omarchy. Es una sola fuente para las dos cosas, y si fuera proporcional las terminales no alinearían bien.
+
+## Capa 5: dock
+
+```bash
+sudo pacman -S --needed nwg-dock-hyprland
+ln -s "$PWD/dock" ~/.config/nwg-dock-hyprland
+omarchy theme set macos
+```
+
+- **Posición:** siempre visible abajo, como en macOS por defecto. Las ventanas maximizadas se detienen encima del dock.
+- **Aspecto:** translúcido con desenfoque e iconos WhiteSur. Un punto bajo cada app abierta.
+- **Primer botón:** abre la cuadrícula de apps de Omarchy (el Launchpad).
+- **Apps fijadas:** salen de `dock/pinned` la primera vez. Después se fijan o quitan con clic derecho.
+- **Arranque:** solo se abre al iniciar sesión si el tema es `macos`, y el hook lo abre o lo cierra al cambiar de tema.
+- **Monitores:** aparece en el monitor que tenía el foco al arrancar.
 
 ## Deshacer
 
