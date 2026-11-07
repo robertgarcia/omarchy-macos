@@ -17,6 +17,7 @@ done
 tar -C "$HOME" -czf "$dest/home.tar.gz" "${existing[@]}"
 pacman -Qq >"$dest/packages-before.txt"
 dconf dump /org/gnome/desktop/interface/ >"$dest/dconf-interface.ini"
+dconf dump /org/gnome/desktop/wm/preferences/ >"$dest/dconf-wm.ini"
 omarchy theme current >"$dest/theme.txt"
 omarchy font current >"$dest/font.txt"
 

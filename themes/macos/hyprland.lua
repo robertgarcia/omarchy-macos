@@ -80,3 +80,72 @@ hl.layer_rule({
 hl.on("hyprland.start", function()
   hl.exec_cmd(os.getenv("HOME") .. "/.config/nwg-dock-hyprland/launch.sh")
 end)
+
+-- Capa 6: traffic lights on every window. The plugin is Omarchy's own hyprbars
+-- build (package omarchy-hyprland-titlebars), rebuilt with every Hyprland update.
+-- Loading it here means switching away from this theme unloads it. The plugin
+-- reloads the config once it is in; that second pass is the one that finds
+-- hl.plugin.hyprbars and configures it.
+local TITLEBARS = "/usr/lib/omarchy-hyprland-titlebars/titlebars.so"
+local titlebars_file = io.open(TITLEBARS, "r")
+if titlebars_file then
+  titlebars_file:close()
+  hl.plugin.load(TITLEBARS)
+end
+
+if hl.plugin.hyprbars then
+  local window = [[window = "address:%WINDOW%"]]
+  local zoom = "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = \"maximized\", action = \"toggle\", " .. window .. " })'"
+
+  hl.config({
+    plugin = {
+      hyprbars = {
+        enabled = true,
+        bar_height = 28,
+        bar_color = "rgb(2c2c2e)",
+        bar_color_inactive = "rgb(232325)",
+        col = { text = "rgb(e5e5e7)" },
+        bar_text_font = "Inter",
+        bar_text_size = 11,
+        bar_text_weight = 600,
+        bar_text_align = "center",
+        bar_buttons_alignment = "left",
+        bar_part_of_window = true,
+        bar_precedence_over_border = true,
+        bar_padding = 12,
+        bar_button_padding = 8,
+        icon_on_hover = true, -- symbols appear only under the pointer, like macOS
+        inactive_button_color = "rgb(48484a)", -- grey dots on unfocused windows
+        on_double_click = zoom,
+      },
+    },
+  })
+
+  -- Left to right: close, minimize, zoom.
+  for _, button in ipairs({
+    { color = "rgb(ff5f57)", icon = "×", action = "hyprctl dispatch 'hl.dsp.window.close({ " .. window .. " })'" },
+    -- Omarchy's own minimize only acts on floating workspaces; the dock brings the window back.
+    { color = "rgb(febc2e)", icon = "−", action = "hyprctl dispatch 'hl.dsp.window.move({ workspace = \"special:minimized\", follow = false, " .. window .. " })'" },
+    { color = "rgb(28c840)", icon = "+", action = zoom },
+  }) do
+    hl.plugin.hyprbars.add_button({
+      bg_color = button.color,
+      fg_color = "rgba(0000008c)",
+      size = 12,
+      icon = button.icon,
+      action = button.action,
+    })
+  end
+
+  -- Clicking a minimized window in the dock focuses it, which on its own would only
+  -- show the hidden workspace as an overlay. Bring it back to the current one instead.
+  hl.on("window.active", function(w)
+    if not (w and w.workspace and w.workspace.name == "special:minimized") then
+      return
+    end
+    local ws = hl.get_active_workspace()
+    if ws and ws.id and ws.id > 0 then
+      hl.dispatch(hl.dsp.window.move({ workspace = tostring(ws.id), window = "address:" .. w.address }))
+    end
+  end)
+end

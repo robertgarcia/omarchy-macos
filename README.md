@@ -12,7 +12,7 @@ Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprl
 | 3 | Barra superior estilo macOS | ✅ |
 | 4 | Fuentes, iconos, cursor y GTK | ✅ |
 | 5 | Dock (`nwg-dock-hyprland`) | ✅ |
-| 6 | Botones de semáforo en las ventanas (`hyprbars`) | pendiente |
+| 6 | Botones de semáforo en las ventanas (`hyprbars`) | ✅ |
 
 ## Antes de empezar
 
@@ -79,6 +79,18 @@ omarchy theme set macos
 - **Arranque:** solo se abre al iniciar sesión si el tema es `macos`, y el hook lo abre o lo cierra al cambiar de tema.
 - **Monitores:** aparece en el monitor que tenía el foco al arrancar.
 
+## Capa 6: botones de semáforo
+
+No hay que instalar nada. Va dentro del tema, así que se activa con `omarchy theme set macos`.
+
+- **Plugin:** es el `hyprbars` que Omarchy ya trae para sus escritorios flotantes (paquete `omarchy-hyprland-titlebars`). Omarchy lo recompila con cada versión de Hyprland, así que no hay que recompilarlo tras actualizar.
+- **Activación:** el tema lo carga en todas las ventanas, también en las de mosaico. Al cambiar de tema, Hyprland lo descarga.
+- **Barra:** 28 px, con el título centrado en Inter.
+- **Botones:** cerrar, minimizar y ampliar, a la izquierda. Los símbolos solo aparecen al pasar el ratón por encima. Las ventanas sin foco muestran los botones en gris.
+- **Doble clic en la barra:** amplía la ventana, igual que el botón verde.
+- **Minimizar:** manda la ventana a un escritorio oculto. Al pulsar su icono en el dock vuelve al escritorio que tengas delante.
+- **Botones GTK:** el hook oculta los botones propios de las apps GTK (Files y otras) para que no haya dos juegos. Al salir del tema los devuelve.
+
 ## Deshacer
 
 ```bash
@@ -89,8 +101,8 @@ Funciona desde una consola de texto (Ctrl+Alt+F3) si Hyprland no arranca. Esto e
 
 1. Devuelve las rutas gestionadas a su estado anterior. Antes guarda lo que hay en ese momento en `<copia>/replaced-<fecha>/`, así que no se pierde nada.
 2. Desinstala los paquetes de `packages.txt` que no estaban instalados antes.
-3. Desactiva `hyprbars`.
-4. Restaura los ajustes GTK y vuelve a aplicar el tema y la fuente que había.
+3. Restaura los ajustes GTK, incluidos los botones de las ventanas.
+4. Vuelve a aplicar el tema y la fuente que había. Con eso desaparecen los botones de semáforo.
 
 Ojo: también devuelve a su estado anterior **cualquier** cambio que hayas hecho en esas rutas después de la copia, aunque no tenga nada que ver con este proyecto (por ejemplo, un atajo nuevo en `~/.config/hypr`). Lo encontrarás en `replaced-<fecha>/`.
 

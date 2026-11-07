@@ -9,6 +9,8 @@ whitesur=/usr/share/themes/WhiteSur-Dark
 marker="/* omarchy-macos: generated, removed when leaving the macos theme */"
 cursor=macOS
 font="Inter 11"
+wm=org.gnome.desktop.wm.preferences
+buttons="appmenu:" # Capa 6: the traffic lights replace GTK's own window buttons
 
 ours() { [[ -f $gtk4/gtk.css && $(head -1 "$gtk4/gtk.css") == "$marker" ]]; }
 
@@ -48,6 +50,7 @@ if [[ $theme == macos ]]; then
     hyprctl setcursor $cursor 24 >/dev/null
   fi
   fc-list -q Inter && gsettings set $iface font-name "$font"
+  [[ -f /usr/lib/omarchy-hyprland-titlebars/titlebars.so ]] && gsettings set $wm button-layout "$buttons"
   dock=~/.config/nwg-dock-hyprland/launch.sh
   [[ -x $dock ]] && setsid -f "$dock" >/dev/null 2>&1
 else
@@ -60,5 +63,6 @@ else
     hyprctl setcursor default 24 >/dev/null
   fi
   [[ $(gsettings get $iface font-name) == "'$font'" ]] && gsettings reset $iface font-name
+  [[ $(gsettings get $wm button-layout) == "'$buttons'" ]] && gsettings reset $wm button-layout
 fi
 exit 0

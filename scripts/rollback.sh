@@ -1,6 +1,6 @@
 #!/bin/bash
 # Undoes omarchy-macos: restores the files from a backup, removes the packages it
-# added, disables hyprbars and re-applies the previous GTK settings, theme and font.
+# added and re-applies the previous GTK settings, theme and font.
 # Works from a text console (Ctrl+Alt+F3) if Hyprland does not start.
 #
 # Usage: rollback.sh [backup-dir]   (default: the most recent backup)
@@ -56,16 +56,15 @@ if ((${#to_remove[@]})); then
   sudo pacman -Rns "${to_remove[@]}" || echo "Aviso: no se pudieron quitar ${to_remove[*]}" >&2
 fi
 
-# 3. hyprbars. Its load line lived in ~/.config/hypr, already restored above.
-if command -v hyprpm >/dev/null; then
-  hyprpm disable hyprbars &>/dev/null || true
-fi
-
-# 4. GTK settings (theme, icons, cursor, fonts).
+# 3. GTK settings (theme, icons, cursor, fonts, window buttons). The traffic
+#    lights (hyprbars) live in the macos theme and go away with step 4.
 dconf reset -f /org/gnome/desktop/interface/
 dconf load /org/gnome/desktop/interface/ <"$src/dconf-interface.ini"
+dconf reset -f /org/gnome/desktop/wm/preferences/
+# Backups older than Capa 6 did not save these; everything there was at its default.
+[[ -f $src/dconf-wm.ini ]] && dconf load /org/gnome/desktop/wm/preferences/ <"$src/dconf-wm.ini"
 
-# 5. Omarchy font and theme (these rewrite terminal configs, bar, etc.).
+# 4. Omarchy font and theme (these rewrite terminal configs, bar, etc.).
 omarchy font set "$(<"$src/font.txt")" || echo "Aviso: repite 'omarchy font set \"$(<"$src/font.txt")\"' tras iniciar sesión" >&2
 omarchy theme set "$(<"$src/theme.txt")" || echo "Aviso: repite 'omarchy theme set \"$(<"$src/theme.txt")\"' tras iniciar sesión" >&2
 
