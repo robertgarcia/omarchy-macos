@@ -2,7 +2,7 @@
    Hyprland blurs what is behind it (layer rule in themes/macos/hyprland.lua). */
 window {
   background: rgba(30, 30, 30, 0.45);
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
@@ -20,7 +20,7 @@ image {
 button {
   padding: 3px;
   margin: 0 1px;
-  border-radius: 8px;
+  border-radius: 7px;
   color: #e5e5e7;
 }
 
