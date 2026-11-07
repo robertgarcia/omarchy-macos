@@ -4,3 +4,5 @@ inter-font
 whitesur-icon-theme
 whitesur-gtk-theme
 apple_cursor
+sassc
+libsass

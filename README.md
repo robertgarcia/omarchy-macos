@@ -10,7 +10,7 @@ Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprl
 | 1 | Tema Omarchy `macos` (colores y fondos) | ✅ |
 | 2 | Ventanas: esquinas, sombras, desenfoque, animaciones | ✅ |
 | 3 | Barra superior estilo macOS | ✅ |
-| 4 | Fuentes, iconos, cursor y GTK | pendiente |
+| 4 | Fuentes, iconos, cursor y GTK | ✅ |
 | 5 | Dock (`nwg-dock-hyprland`) | pendiente |
 | 6 | Botones de semáforo en las ventanas (`hyprbars`) | pendiente |
 
@@ -50,6 +50,19 @@ python3 scripts/bar-layout.py     # reordena ~/.config/omarchy/shell.json
 Izquierda: menú de Omarchy (el equivalente al menú Apple) y el título de la ventana activa. Centro: escritorios. Derecha: todos los iconos de estado y el reloj al final (`Fri 6 Nov  19:38`).
 El script conserva cualquier widget que no conozca (lo pone a la derecha) y se puede ejecutar varias veces sin cambiar el resultado.
 Esta capa no forma parte del tema: si cambias de tema, la barra conserva esta disposición.
+
+## Capa 4: fuentes, iconos, cursor y GTK
+
+```bash
+yay -S --needed inter-font whitesur-icon-theme whitesur-gtk-theme apple_cursor
+ln -s "$PWD/hooks/theme-set-macos.sh" ~/.config/omarchy/hooks/theme-set.d/macos.sh
+omarchy theme set macos
+```
+
+- Los iconos `WhiteSur-dark` vienen del `icons.theme` del tema.
+- El hook `hooks/theme-set-macos.sh` se ejecuta cada vez que cambias de tema. Con `macos` pone el tema GTK `WhiteSur-Dark`, el cursor `macOS` y la fuente de interfaz `Inter 11`. Con cualquier otro tema quita solo lo que puso él.
+- Las apps libadwaita (GTK4, como Files) ignoran el tema GTK. Por eso el hook extrae el CSS de WhiteSur en `~/.config/gtk-4.0/whitesur/` y crea un `gtk.css` marcado que lo importa. Nunca sobrescribe un `gtk.css` tuyo. Las apps abiertas solo lo ven al reiniciarlas.
+- La fuente de la barra y de las terminales sigue siendo la monoespaciada de Omarchy. Es una sola fuente para las dos cosas, y si fuera proporcional las terminales no alinearían bien.
 
 ## Deshacer
 
