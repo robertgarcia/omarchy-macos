@@ -83,7 +83,7 @@ omarchy theme set macos
 - **Primer botón:** abre la cuadrícula de apps de Omarchy (el Launchpad).
 - **Apps fijadas:** salen de `dock/pinned` la primera vez. Después se fijan o quitan con clic derecho.
 - **Arranque:** solo se abre al iniciar sesión si el tema es `macos`, y el hook lo abre o lo cierra al cambiar de tema.
-- **Monitores:** aparece en el monitor que tenía el foco al arrancar.
+- **Monitores:** aparece en la pantalla externa si hay una conectada, y si no, en la del portátil. Si conectas la externa con la sesión ya iniciada, el dock se queda donde estaba hasta que se reinicie.
 
 ## Capa 6: botones de semáforo
 
