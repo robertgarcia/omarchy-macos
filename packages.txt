@@ -1,0 +1,2 @@
+# Packages omarchy-macos installs, one per line.
+# rollback.sh removes only those that were NOT installed before backup.sh ran.
