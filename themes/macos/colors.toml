@@ -1,0 +1,36 @@
+# macOS dark: Apple's dark-mode system colors (NSColor / UIKit "dark" variants).
+mode = "dark"
+
+accent = "#0A84FF"      # systemBlue
+selection = "#3F638B"   # selectedTextBackgroundColor
+muted = "#8E8E93"       # systemGray
+
+background = "#1E1E1E"         # windowBackgroundColor
+dark_background = "#161616"
+darker_background = "#101010"
+lighter_background = "#2C2C2E" # systemGray5
+
+foreground = "#E5E5E7"         # labelColor (~90% white)
+dark_foreground = "#98989D"    # secondaryLabelColor
+light_foreground = "#C7C7CC"
+bright_foreground = "#FFFFFF"
+
+red = "#FF453A"
+yellow = "#FFD60A"
+orange = "#FF9F0A"
+green = "#32D74B"
+cyan = "#64D2FF"
+blue = "#0A84FF"
+magenta = "#BF5AF2"
+brown = "#AC8E68"
+
+bright_red = "#FF6961"
+bright_yellow = "#FFE45C"
+bright_green = "#5DE677"
+bright_cyan = "#8EDFFF"
+bright_blue = "#409CFF"
+bright_magenta = "#DA8FFF"
+
+# macOS windows have no colored frame, only a faint hairline.
+hyprland_active_border = "rgba(ffffff38)"
+hyprland_inactive_border = "rgba(ffffff14)"

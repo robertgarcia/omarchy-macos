@@ -7,7 +7,7 @@ Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprl
 | # | Capa | Estado |
 |---|------|--------|
 | 0 | Copia de seguridad y rollback | ✅ |
-| 1 | Tema Omarchy `macos` (colores y fondos) | pendiente |
+| 1 | Tema Omarchy `macos` (colores y fondos) | ✅ |
 | 2 | Ventanas: esquinas, sombras, desenfoque, animaciones | pendiente |
 | 3 | Barra superior estilo macOS | pendiente |
 | 4 | Fuentes, iconos, cursor y GTK | pendiente |
@@ -23,6 +23,15 @@ scripts/backup.sh           # copia de lo que se toca en $HOME
 
 Snapper no cubre `/home` en Omarchy, así que `backup.sh` hace falta aunque tengas instantáneas.
 Guarda las rutas de `scripts/managed-paths.sh`, la lista de paquetes instalados, los ajustes GTK (dconf) y el tema y la fuente actuales en `~/.local/share/omarchy-macos/backups/<fecha>/`.
+
+## Capa 1: tema
+
+```bash
+ln -s "$PWD/themes/macos" ~/.config/omarchy/themes/macos
+omarchy theme set macos
+```
+
+Colores del modo oscuro de macOS (`systemBlue` como acento) y dos fondos abstractos originales (`1-noche`, `2-grafito`). Cambia de fondo con `omarchy theme bg next`.
 
 ## Deshacer
 
