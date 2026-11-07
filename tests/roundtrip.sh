@@ -12,7 +12,7 @@ unset HYPRLAND_INSTANCE_SIGNATURE
 mkdir -p "$t/bin" "$HOME/.config/hypr" "$HOME/.config/omarchy"
 echo original >"$HOME/.config/hypr/looknfeel.lua"
 echo '{}' >"$HOME/.config/omarchy/shell.json"
-for cmd in omarchy dconf sudo hyprpm; do
+for cmd in omarchy dconf sudo hyprpm pkill; do
   printf '#!/bin/bash\necho "%s $*" >>"%s/calls"\n[[ "$*" == "theme current" ]] && echo Ethereal\n[[ "$*" == "font current" ]] && echo "JetBrainsMono Nerd Font"\nexit 0\n' "$cmd" "$t" >"$t/bin/$cmd"
 done
 printf '#!/bin/bash\n[[ -z ${2:-} ]] && { echo base; exit 0; }\n[[ $2 == fake-dock ]]\n' >"$t/bin/pacman"
