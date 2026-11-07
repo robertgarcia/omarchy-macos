@@ -13,4 +13,4 @@ pins="${XDG_CACHE_HOME:-$HOME/.cache}/nwg-dock-pinned"
 # eDP panel); otherwise nwg-dock picks the focused one.
 # shortcut: chosen at start, so a monitor plugged in later needs a dock restart.
 external=$(hyprctl monitors -j | jq -r '[.[] | select(.name | startswith("eDP") | not)][0].name // empty')
-exec nwg-dock-hyprland -x -i 32 -mb 5 -lp start ${external:+-o "$external"} -c "omarchy-shell omarchy.dock apps"
+exec nwg-dock-hyprland -x -i 28 -mb 5 -lp start ${external:+-o "$external"} -c "omarchy-shell omarchy.dock apps"
