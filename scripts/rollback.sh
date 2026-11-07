@@ -40,6 +40,10 @@ for p in "${MANAGED_PATHS[@]}"; do
 done
 echo "Archivos restaurados (lo que había quedó en $aside)"
 
+# The glassy bar leaves a toggle in ~/.local/state/omarchy/toggles (not a managed
+# path: it holds unrelated toggles); re-derive it from the restored shell.json.
+omarchy bar sync-glass || echo "Aviso: repite 'omarchy bar sync-glass' tras iniciar sesión" >&2
+
 # 2. Packages this project installed that were not there before.
 to_remove=()
 while read -r pkg; do

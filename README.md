@@ -9,7 +9,7 @@ Aspecto macOS (modo oscuro) para [Omarchy](https://omarchy.org/) 4.x sobre Hyprl
 | 0 | Copia de seguridad y rollback | ✅ |
 | 1 | Tema Omarchy `macos` (colores y fondos) | ✅ |
 | 2 | Ventanas: esquinas, sombras, desenfoque, animaciones | ✅ |
-| 3 | Barra superior estilo macOS | pendiente |
+| 3 | Barra superior estilo macOS | ✅ |
 | 4 | Fuentes, iconos, cursor y GTK | pendiente |
 | 5 | Dock (`nwg-dock-hyprland`) | pendiente |
 | 6 | Botones de semáforo en las ventanas (`hyprbars`) | pendiente |
@@ -39,6 +39,17 @@ Va dentro del tema, en `themes/macos/hyprland.lua`, así que se activa y se desa
 Esquinas de 12 px casi en forma de squircle, borde fino, sombra amplia que cae un poco, desenfoque para lo translúcido, ventanas que aparecen creciendo desde el 92 % y escritorios que se deslizan de lado, como los Spaces de macOS.
 
 Lo que pongas en `~/.config/hypr/looknfeel.lua` o actives con un toggle de Omarchy se carga después y manda sobre esto.
+
+## Capa 3: barra superior
+
+```bash
+omarchy bar background glassy     # translúcida con desenfoque
+python3 scripts/bar-layout.py     # reordena ~/.config/omarchy/shell.json
+```
+
+Izquierda: menú de Omarchy (el equivalente al menú Apple) y el título de la ventana activa. Centro: escritorios. Derecha: todos los iconos de estado y el reloj al final (`Fri 6 Nov  19:38`).
+El script conserva cualquier widget que no conozca (lo pone a la derecha) y se puede ejecutar varias veces sin cambiar el resultado.
+Esta capa no forma parte del tema: si cambias de tema, la barra conserva esta disposición.
 
 ## Deshacer
 
