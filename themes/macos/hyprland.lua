@@ -67,3 +67,16 @@ hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.2, bezier = "macos
 hl.animation({ leaf = "windowsMove", enabled = true, speed = 3.5, bezier = "macos" })
 hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "macos" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 4.5, bezier = "macos", style = "slide" })
+
+-- Capa 5: macOS-style dock (nwg-dock-hyprland). Frosted like the bar, and
+-- started at login only while this theme is active; the theme-set hook starts
+-- or stops it when switching themes later.
+hl.layer_rule({
+  match = { namespace = "^nwg-dock$" },
+  blur = true,
+  ignore_alpha = 0.3,
+})
+
+hl.on("hyprland.start", function()
+  hl.exec_cmd(os.getenv("HOME") .. "/.config/nwg-dock-hyprland/launch.sh")
+end)

@@ -45,6 +45,8 @@ echo "Archivos restaurados (lo que había quedó en $aside)"
 omarchy bar sync-glass || echo "Aviso: repite 'omarchy bar sync-glass' tras iniciar sesión" >&2
 
 # 2. Packages this project installed that were not there before.
+#    The dock is running from one of them, and the restored hooks no longer stop it.
+pkill -f '^nwg-dock-hyprland' || true
 to_remove=()
 while read -r pkg; do
   [[ -z $pkg || $pkg == \#* ]] && continue

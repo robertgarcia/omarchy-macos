@@ -6,3 +6,5 @@ whitesur-gtk-theme
 apple_cursor
 sassc
 libsass
+nwg-dock-hyprland
+gtk-layer-shell

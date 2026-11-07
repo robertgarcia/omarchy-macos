@@ -7,6 +7,7 @@ MANAGED_PATHS=(
   .config/gtk-4.0
   .config/fontconfig
   .config/nwg-dock-hyprland
+  .cache/nwg-dock-pinned
   .local/state/omarchy/current
   .local/share/icons
   .local/share/themes

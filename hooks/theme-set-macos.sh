@@ -48,7 +48,10 @@ if [[ $theme == macos ]]; then
     hyprctl setcursor $cursor 24 >/dev/null
   fi
   fc-list -q Inter && gsettings set $iface font-name "$font"
+  dock=~/.config/nwg-dock-hyprland/launch.sh
+  [[ -x $dock ]] && setsid -f "$dock" >/dev/null 2>&1
 else
+  pkill -f '^nwg-dock-hyprland' || true
   if ours; then
     rm -rf "$gtk4/gtk.css" "$gtk4/whitesur"
   fi

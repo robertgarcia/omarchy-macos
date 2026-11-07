@@ -1,0 +1,37 @@
+/* Capa 5: macOS-style dock. Frosted rounded panel with a hairline border;
+   Hyprland blurs what is behind it (layer rule in themes/macos/hyprland.lua). */
+window {
+  background: rgba(30, 30, 30, 0.45);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+#box {
+  padding: 4px 6px;
+}
+
+button,
+image {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+button {
+  padding: 4px;
+  margin: 0 2px;
+  border-radius: 10px;
+  color: #e5e5e7;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+button:focus {
+  box-shadow: none;
+}
+
+#active {
+  border-bottom: none;
+}
