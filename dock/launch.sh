@@ -9,4 +9,4 @@ pins="${XDG_CACHE_HOME:-$HOME/.cache}/nwg-dock-pinned"
 # Always visible, like macOS by default; -x makes windows stop above it.
 # (-d autohide only reacts to a narrow strip at the bottom centre, too easy to miss.)
 # The launcher button opens Omarchy's app grid, the Launchpad equivalent.
-exec nwg-dock-hyprland -x -i 48 -mb 8 -lp start -c "omarchy-shell omarchy.dock apps"
+exec nwg-dock-hyprland -x -i 36 -mb 6 -lp start -c "omarchy-shell omarchy.dock apps"

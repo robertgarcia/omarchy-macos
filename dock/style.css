@@ -2,12 +2,12 @@
    Hyprland blurs what is behind it (layer rule in themes/macos/hyprland.lua). */
 window {
   background: rgba(30, 30, 30, 0.45);
-  border-radius: 18px;
+  border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 #box {
-  padding: 4px 6px;
+  padding: 3px 4px;
 }
 
 button,
@@ -18,9 +18,9 @@ image {
 }
 
 button {
-  padding: 4px;
-  margin: 0 2px;
-  border-radius: 10px;
+  padding: 3px;
+  margin: 0 1px;
+  border-radius: 8px;
   color: #e5e5e7;
 }
 
