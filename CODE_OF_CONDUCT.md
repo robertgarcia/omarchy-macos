@@ -10,6 +10,6 @@ In short:
 
 ## Reporting
 
-Report unacceptable behavior to the maintainer, [robertgarcia](https://github.com/robertgarcia), through GitHub. If the report needs privacy, open an issue asking for a private channel without including any details.
+Report unacceptable behavior to the maintainer at [rdgarcia.hn@outlook.com](mailto:rdgarcia.hn@outlook.com). Reports are read only by the maintainer.
 
 The maintainer will review every report, keep the reporter's identity private, and may remove comments or block participants who break this code. Enforcement follows the [Contributor Covenant guidelines](https://www.contributor-covenant.org/version/2/1/code_of_conduct/#enforcement-guidelines).
