@@ -33,6 +33,9 @@ Las capas 1, 2, 4, 5 y 6 van con el tema: al cambiar a otro tema de Omarchy se a
 - `yay` para los paquetes de AUR de la capa 4 (Omarchy ya lo trae).
 - Para la capa 6, el paquete `omarchy-hyprland-titlebars`, que forma parte de la instalación base de Omarchy.
 
+> [!IMPORTANT]
+> No lo instales con `omarchy theme install`. Ese comando trata todo el repositorio como la carpeta de un tema, pero el tema está en `themes/macos/`, y el dock, los semáforos y las fuentes necesitan los pasos de abajo.
+
 Clona el repositorio y ejecuta todos los comandos desde su raíz, porque los enlaces apuntan a `$PWD`:
 
 ```bash
