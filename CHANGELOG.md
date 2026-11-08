@@ -2,6 +2,14 @@
 
 All notable changes to this project are listed here. Versions follow [Semantic Versioning](https://semver.org/).
 
+## [0.1.1] - 2026-11-07
+
+### Changed
+
+- **Layer 5:** smaller dock, with 28 px icons instead of 32 px.
+- README: a note that `omarchy theme install` does not work with this repository, and a new dock screenshot.
+- Code of conduct: a contact email for reports.
+
 ## [0.1.0] - 2026-11-06
 
 First public release. Tested on Omarchy 4.5.0 with Hyprland 0.56.2.
@@ -16,4 +24,5 @@ First public release. Tested on Omarchy 4.5.0 with Hyprland 0.56.2.
 - **Layer 5:** an always-visible dock (`nwg-dock-hyprland`) that prefers the external monitor.
 - **Layer 6:** traffic-light buttons on every window, using Omarchy's own `hyprbars` build. Minimized windows come back from the dock.
 
+[0.1.1]: https://github.com/robertgarcia/omarchy-macos/releases/tag/v0.1.1
 [0.1.0]: https://github.com/robertgarcia/omarchy-macos/releases/tag/v0.1.0
