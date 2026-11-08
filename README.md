@@ -33,6 +33,9 @@ Layers 1, 2, 4, 5 and 6 follow the theme: switching to another Omarchy theme tur
 - `yay` for the AUR packages in layer 4 (Omarchy ships it).
 - For layer 6, the `omarchy-hyprland-titlebars` package, which is part of Omarchy's base install.
 
+> [!IMPORTANT]
+> Do not install this with `omarchy theme install`. That command treats the whole repository as one theme folder, but the theme lives in `themes/macos/`, and the dock, traffic lights and fonts need the steps below.
+
 Clone the repository and run every command below from its root, because the links point at `$PWD`:
 
 ```bash
